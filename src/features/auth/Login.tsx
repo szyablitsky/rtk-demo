@@ -1,5 +1,4 @@
 import { Navigate } from "react-router-dom";
-import { memo } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -71,4 +70,4 @@ function Login() {
   );
 }
 
-export default memo(Login);
+export default Login;

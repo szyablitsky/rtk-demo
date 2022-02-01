@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useGetChatsQuery } from "../../app/services/chat";
 
@@ -40,4 +39,4 @@ function Chats() {
   );
 }
 
-export default memo(Chats);
+export default Chats;

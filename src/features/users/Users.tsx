@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useGetUsersQuery } from "../../app/services/users";
 
@@ -44,4 +43,4 @@ function Users() {
   );
 }
 
-export default memo(Users);
+export default Users;
