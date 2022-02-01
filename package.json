@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start:server": "node ./server.js",
-    "start:client": "parcel",
+    "start:client": "parcel ./src/index.html",
     "build": "parcel build"
   },
   "browserslist": {

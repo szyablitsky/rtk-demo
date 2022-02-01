@@ -8,16 +8,16 @@ const injectedRtkApi = api.injectEndpoints({
       providesTags: ['Chats'],
     }),
     addChat: build.mutation<AddChatApiResponse, AddChatApiArg>({
-      query: () => ({ url: '/chats', method: 'POST' }),
-      invalidatesTags: ['Users'],
+      query: (queryArg) => ({ url: '/chats', method: 'POST', body: queryArg.chat }),
+      invalidatesTags: ['Chats'],
     }),
     getChat: build.query<GetChatApiResponse, GetChatApiArg>({
       query: (queryArg) => ({ url: `/chats/${queryArg.id}` }),
       providesTags: ['Chats', 'Messages'],
     }),
     updateChat: build.mutation<UpdateChatApiResponse, UpdateChatApiArg>({
-      query: (queryArg) => ({ url: `/chats/${queryArg.id}`, method: 'PATCH' }),
-      invalidatesTags: ['Users'],
+      query: (queryArg) => ({ url: `/chats/${queryArg.id}`, method: 'PATCH', body: queryArg.chat }),
+      invalidatesTags: ['Chats'],
     }),
     getChatUsers: build.query<GetChatUsersApiResponse, GetChatUsersApiArg>({
       query: (queryArg) => ({

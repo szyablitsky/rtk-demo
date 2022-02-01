@@ -11,8 +11,8 @@ const injectedRtkApi = api.injectEndpoints({
       providesTags: ['Messages'],
     }),
     addMessage: build.mutation<AddMessageApiResponse, AddMessageApiArg>({
-      query: () => ({ url: `/messages`, method: 'POST' }),
-      invalidatesTags: ['Users'],
+      query: (queryArg) => ({ url: `/messages`, method: 'POST', body: queryArg.message }),
+      invalidatesTags: ['Messages'],
     }),
     getMessage: build.query<GetMessageApiResponse, GetMessageApiArg>({
       query: (queryArg) => ({ url: `/messages/${queryArg.id}` }),
@@ -25,6 +25,7 @@ const injectedRtkApi = api.injectEndpoints({
       query: (queryArg) => ({
         url: `/messages/${queryArg.id}`,
         method: 'PATCH',
+        body: queryArg.message
       }),
       invalidatesTags: ['Messages'],
     }),
@@ -41,7 +42,9 @@ export type GetMessagesApiArg = {
 };
 export type AddMessageApiResponse =
   /** status 200 successful operation */ Message;
-export type AddMessageApiArg = void;
+export type AddMessageApiArg = {
+  message: Message;
+};
 export type GetMessageApiResponse =
   /** status 200 successful operation */ Message;
 export type GetMessageApiArg = {
@@ -52,6 +55,7 @@ export type ChangeMessageApiResponse =
 export type ChangeMessageApiArg = {
   /** ID of chat */
   id: number;
+  message: Message;
 };
 export const {
   useGetMessagesQuery,
