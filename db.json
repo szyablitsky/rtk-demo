@@ -43,7 +43,7 @@
     },
     {
       "id": 6,
-      "name": "David",
+      "name": "David test",
       "email": "david@example.com",
       "role": "owner",
       "firmId": 1

@@ -20,19 +20,21 @@ function App() {
   return (
     <BrowserRouter>
       {isAuth ? <Navigation /> : null}
-      <Routes>
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<PrivateRoute />}>
-          <Route index element={<Home />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/users/new" element={<UserNew />} />
-          <Route path="/users/:id/edit" element={<UserEdit />} />
-          <Route path="/chats" element={<Chats />} />
-          <Route path="/chats/new" element={<ChatNew />} />
-          <Route path="/chats/:id/edit" element={<ChatEdit />} />
-        </Route>
-      </Routes>
+      <div className="content">
+        <Routes>
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<PrivateRoute />}>
+            <Route index element={<Home />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/users/new" element={<UserNew />} />
+            <Route path="/users/:id/edit" element={<UserEdit />} />
+            <Route path="/chats" element={<Chats />} />
+            <Route path="/chats/new" element={<ChatNew />} />
+            <Route path="/chats/:id/edit" element={<ChatEdit />} />
+          </Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

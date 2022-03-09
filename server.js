@@ -10,7 +10,7 @@ server.use(jsonServer.bodyParser)
 server.use((req, res, next) => {
   if (req.method === 'POST' && req.path === '/login') {
     if (req.body?.email === 'owner@example.com' && req.body?.password === 'Ab12345678') {
-      res.status(200).json({ key: TOKEN })
+      res.status(200).json({ key: TOKEN, id: 6 })
     } else {
       res.status(400).json({ message: 'wrong password' })
     }
